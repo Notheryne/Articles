@@ -13,9 +13,9 @@ gazeta_urls = {
 
 interia_biznes_urls = {
 # url : category name
-"https://biznes.interia.pl/wiadomosci," : "Biznes - wiadomości",
-"https://biznes.interia.pl/nieruchomosci," : "Biznes - nieruchomości",
-"https://biznes.interia.pl/budownictwo," : "Biznes - budownictwo",
+#"https://biznes.interia.pl/wiadomosci," : "Biznes - wiadomości",
+#"https://biznes.interia.pl/nieruchomosci," : "Biznes - nieruchomości",
+#"https://biznes.interia.pl/budownictwo," : "Biznes - budownictwo",
 "https://biznes.interia.pl/firma," : "Biznes - firma",
 "https://biznes.interia.pl/media," : "Biznes - media",
 }
