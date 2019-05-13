@@ -28,19 +28,50 @@ for key, value in articles.items():
     titles.append(key)
     categories.append(value)
 
-titles = ' '.join(titles)
-words = titles.split(' ')
-print(len(words))
-words = list(dict.fromkeys(words))
-print(len(words))
+nodup_categories = list(dict.fromkeys(categories))
+categories_ids = {}
+tokenized_categories = []
+for i in range(len(nodup_categories)):
+    categories_ids[nodup_categories[i]] = i
 
+for category in categories:
+    tokenized_categories.append(categories_ids[category])
+
+titles_str = ' '.join(titles)
+words = titles_str.split(' ')
+words = list(dict.fromkeys(words))
+words_ids = {}
+
+for i in range(len(words)):
+    words_ids[words[i]] = i
+
+tokenized_titles = []
+
+for title in titles:
+    tokenized_title = []
+    tmp = title.split(" ")
+    for word in tmp:
+        tokenized_title.append(int(words_ids[word]))
+    tokenized_titles.append(tokenized_title)
+
+"""for i in range(10):
+    print(titles[i])
+    print(tokenized_titles[i])
 """
+tokenized_articles = []
+
+for i in range(len(tokenized_titles)):
+    tokenized_titles[i].append(int(tokenized_categories[i]))
+
+#for i in range(len(tokenized_titles)):
+    #tokenized_articles[tokenized_titles[i]] = tokenized_categories[i]
+
+#print(tokenized_articles)
+
+#for i in range(len(tokeni))
+
 with open(filename2, 'a', encoding='utf-8') as wfile:
-    writer = csv.writer(wfile,delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
-    writer.writerow(["Title", "Category"])
-    for key, value in articles.items():
+    writer = csv.writer(wfile,delimiter=',')
+    for token in tokenized_titles:
         #writer.writerow([key, value])
-        words = key.split(" ")
-        title_encoded = le.fit_transform(words)
-        category_encoded = le.fit_transform([value])
-        writer.writerow([title_encoded, category_encoded])"""
+        writer.writerow(token)

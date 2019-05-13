@@ -3,7 +3,7 @@ import random
 import math
 
 def loadCsv(filename):
-	lines = csv.reader(open(filename, "rb"))
+	lines = csv.reader(open(filename, "rb", encoding = 'utf-8'))
 	dataset = list(lines)
 	for i in range(len(dataset)):
 		dataset[i] = [float(x) for x in dataset[i]]
@@ -85,7 +85,7 @@ def getAccuracy(testSet, predictions):
 	return (correct/float(len(testSet))) * 100.0
 
 def main():
-	filename = 'data/all_data.csv'
+	filename = 'data/all_data_num.csv'
 	splitRatio = 0.67
 	dataset = loadCsv(filename)
 	trainingSet, testSet = splitDataset(dataset, splitRatio)
