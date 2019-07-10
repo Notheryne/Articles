@@ -4,11 +4,11 @@ import csv
 Check if there are any duplicates.
 
 """
-interia_data = "data/interia.csv"
-gazeta_data = "data/gazeta.csv"
-og_data = "data/obserwator_gospodarczy.csv"
-se_data = "data/super_express.csv"
-wyborcza_data = "data/wyborcza.csv"
+interia_data = "./data/interia.csv"
+gazeta_data = "./data/gazeta.csv"
+og_data = "./data/obserwator_gospodarczy.csv"
+se_data = "./data/super_express.csv"
+wyborcza_data = "./data/wyborcza.csv"
 files = [interia_data, gazeta_data, og_data, se_data, wyborcza_data]
 data = []
 for file in files:

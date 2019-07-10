@@ -26,7 +26,7 @@ for i in sorted:
     categories.append(i[0])
     opinions.append(i[1])
 indexes = [i for i in range(len(categories))]
-
+print(categories)
 plt.barh(indexes, opinions)
 plt.yticks(indexes, categories)
 plt.show()
