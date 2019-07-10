@@ -9,7 +9,7 @@ Articles for data science learning.
 - [trojmiasto.pl](https://www.trojmiasto.pl/)
 
 ## What's done:
-- Based on trojmiasto.pl
+### Based on trojmiasto.pl
 * length of the headline and amount of opinions
 ![length_opinions](plots/all_hlines_opinions.png)
 * category and amount of opinions
@@ -17,9 +17,9 @@ Articles for data science learning.
 * last word in the headline and amount of opinions
 ![lastword_opinions](plots/last_word_engagement.png)
 * first word in the headline and amount of opinions
-![firstord_opinions](plots/first_word_engagement.png)
+![firstword_opinions](plots/first_word_engagement.png)
 
-- Based on all data
+### Based on all data
 * Most popular categories
 ![popular_categories](plots/popular_categories.png)
 * Average length of headline in category
