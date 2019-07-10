@@ -11,7 +11,7 @@ def clean(string):
     string = string.strip(" ")
     return string
 
-def scrape_og(url, category, filename = "data/obserwator_gospodarczy.csv", sites = 100):
+def scrape_og(url, category, filename = "./data/obserwator_gospodarczy.csv", sites = 100):
     print('Scraping "Obserwator Gospodarczy", kategoria: {}, ilość stron: {}\n'.format(category, sites))
     for i in tqdm(range(1, sites)):
         try:

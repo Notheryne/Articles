@@ -5,7 +5,7 @@ from tqdm import tqdm
 import time
 
 
-def scrape_gazeta(url, category, filename = "data/gazeta.csv", sites = 450):
+def scrape_gazeta(url, category, filename = "./data/gazeta.csv", sites = 450):
     print('Scraping "gazeta.pl", kategoria: {}, ilość stron: {}'.format(category, sites))
     for i in tqdm(range(1, sites)):
         try:

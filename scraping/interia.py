@@ -11,7 +11,7 @@ def clean(string):
     string = string.strip(" ")
     return string
 
-def scrape_interia_biznes(url, category, filename = "data/interia.csv", sites = 600):
+def scrape_interia_biznes(url, category, filename = "./data/interia.csv", sites = 600):
     print('Scraping "Interia biznes", kategoria: {}, ilość stron: {}'.format(category, sites))
     for i in tqdm(range(1, sites)):
         try:

@@ -11,24 +11,24 @@ def clean(string):
     string = string.strip(" ")
     return string
 
-def scrape_wyborcza(url, category, filename = 'data/wyborcza.csv', sites = 500):
-    print('Scraping "Wyborcza", kategoria: {}, ilość stron: {}'.format(category, sites))
-    for i in tqdm(range(1, sites)):
+def scrape_se(url, category, filename = "./data/super_express.csv", sites = 1000):
+    print('Scraping "Super Express", kategoria: {}, ilość stron:{}'.format(category, sites))
+    for i in tqdm(range(sites)):
         try:
-            page = requests.get(url + str(i) + "_23718332")
+            if i%10 == 0:
+                time.sleep(10)
+            page = requests.get(url + str(i))
             page = page.text
             soup = BeautifulSoup(page, 'html.parser')
+            #get page with BS
 
-            soup = soup.find_all("h2")
-
+            soup = soup.find_all("div", {"class":"element__headline"})
             names = []
             for s in soup:
                 names.append(clean(s.text))
 
-            names = names[:-1]
-            if len(names) == 0:
-                print("End of articles reached.")
-                break
+            names = names[:8]
+
             for i in range(len(names)):
                 with(open(filename, 'a', encoding = 'utf-8')) as file:
                     writer = csv.writer(file,delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
@@ -36,6 +36,6 @@ def scrape_wyborcza(url, category, filename = 'data/wyborcza.csv', sites = 500):
 
         except Exception as e:
             with open("errors.txt", 'a', encoding = 'utf-8') as efile:
-                efile.write("Wyborcza:\nError on page {}, skipping. \n".format(i))
+                efile.write("SuperExpress:\nError on page {}, skipping. \n".format(i))
                 efile.write(str(e) + "\n\n\n")
                 continue

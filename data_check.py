@@ -1,16 +1,21 @@
 import csv
 
+"""
+Check if there are any duplicates.
+
+"""
 interia_data = "data/interia.csv"
 gazeta_data = "data/gazeta.csv"
 og_data = "data/obserwator_gospodarczy.csv"
 se_data = "data/super_express.csv"
 wyborcza_data = "data/wyborcza.csv"
-
+files = [interia_data, gazeta_data, og_data, se_data, wyborcza_data]
 data = []
-with open(interia_data, 'r', encoding="utf-8") as rfile:
-    reader = csv.DictReader(rfile, delimiter = ',', quotechar='"')
-    for row in reader:
-        data.append(row['Title'])
+for file in files:
+    with open(file, 'r', encoding="utf-8") as rfile:
+        reader = csv.DictReader(rfile, delimiter = ',', quotechar='"')
+        for row in reader:
+            data.append(row['Title'])
 
 print(len(data))
 nodup = []
